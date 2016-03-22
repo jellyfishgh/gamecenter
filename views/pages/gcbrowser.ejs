@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <% include ../partials/head %>
+    <link rel="stylesheet" href="/css/gc.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="banner">
+            <ul class="banners">
+                <% for(var i = 0; i < gbs.length; i++) { %>
+                    <li><a href='/gcbrowser/<%= gbs[i] %>'><img src='/img/<%= gbs[i] %>.jpg'></a></li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="list">
+            <ul class="games">
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.min.js'></script>
+    <!-- <script src='/src/build/gc.min.js'></script> -->
+    <script>
+        // app.init();
+    </script>
+</body>
+
+</html>

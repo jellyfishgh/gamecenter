@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <% include ../partials/head %>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <main>
+        <div>
+            <h1>index</h1>
+            <p>Welcome to templating using EJS</p>
+            <ul>
+                <% for(var i = 0; i < links.length; i++) { %>
+                    <li><a href='<%= links[i] %>'><%= links[i] %></a></li>
+                <% } %>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+</body>
+
+</html>
