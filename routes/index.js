@@ -1,8 +1,11 @@
 var router = require('koa-router')();
 
+router.get('index', generator);
 router.get('/', generator);
 
 function* generator(next) {
+    var n = this.session.views || 0;
+    this.session.views = ++n;
     var links = [
         "index",
         "server",
@@ -14,6 +17,7 @@ function* generator(next) {
     yield this.render('pages/index', {
         "title": "index",
         "links": links,
+        "count": this.session.views,
         "thisYear": (new Date()).getFullYear()
     });
 }

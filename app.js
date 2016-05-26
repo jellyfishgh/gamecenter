@@ -7,6 +7,7 @@ var parser = require('koa-bodyparser');
 var onerror = require('koa-onerror');
 var koastatic = require('koa-static');
 var path = require('path');
+var session = require('koa-session');
 
 var app = koa();
 
@@ -25,8 +26,10 @@ app.use(parser());
 app.use(json());
 app.use(logger());
 app.use(koastatic(path.join(__dirname, 'public')));
+app.keys = ["jellyfish"];
+app.use(session(app));
 
-router.use('/index', index.routes(), index.allowedMethods());
+router.use('/', index.routes(), index.allowedMethods());
 router.use('/server', server.routes(), server.allowedMethods());
 router.use('/rsrServer', rsrServer.routes(), rsrServer.allowedMethods());
 router.use('/redis', redis.routes(), redis.allowedMethods());

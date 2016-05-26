@@ -11,6 +11,7 @@
         <div>
             <h1>index</h1>
             <p>Welcome to templating using EJS</p>
+            <p>第 <%= count %> 次访问</p>
             <ul>
                 <% for(var i = 0; i < links.length; i++) { %>
                     <li><a href='<%= links[i] %>'><%= links[i] %></a></li>
